@@ -1,0 +1,9 @@
+.header__logo {
+    color: #FFFFFF;
+}
+
+@media (max-width: 480px) {
+    .header__logo {
+        width: 105px;
+    }
+}
