@@ -10,26 +10,76 @@
 
 <body class="page">
     <header class="header">
-        <img class="header__logo" alt="Логотип" src="./images/logo.svg">
+        <a href="#" class="header__logo-link"><img class="header__logo" alt="Логотип" src="./images/logo.svg">
+        </a>
     </header>
-
     <main class="content">
-        <div class="profile">
-            <img src="./images/custo.jpg" alt="Жак-Ив Кусто" class="profile__avatar">
-            <div class="profile__info">
-                <p class="profile__title">Жак-Ив Кусто</p>
-                <p class="profile__subtitle">Исследователь океана</p>
-                <a class="profile__edit-button" href="#">
-
-                </a>
+        <section class="profile">
+            <div class="profile__main">
+                <img src="./images/custo.jpg" alt="Жак-Ив Кусто" class="profile__avatar">
+                <div class="profile__info">
+                    <div class="profile__wrapper">
+                        <h1 class="profile__title">Жак-Ив Кусто</h1>
+                        <button type="button" class="profile__edit-button">
+                            <img src="./images/edit.svg" class="proile__btn-img">
+                        </button>
+                    </div>
+                    <p class="profile__subtitle">Исследователь океана</p>
+                </div>
             </div>
-            <a class="profile__add-button" href="#">
-
-            </a>
-        </div>
-
+            <button class="profile__add-button" type="button">
+            </button>
+        </section>
+        <ul class="elems">
+            <li class="elems__item">
+                <a href="#" class="elems__img-link"><img src="./images/karachaevsk.jpg" alt="Карачаевск"
+                        class="elems__img"></a>
+                <div class="elems__wrapper">
+                    <p class="elems__title">Карачаевск</p>
+                    <button type="button" class="elems__like"></button>
+                </div>
+            </li>
+            <li class="elems__item">
+                <a href="#" class="elems__img-link"><img src="./images/elbrus.jpg" alt="Эльбрус" class="elems__img"></a>
+                <div class="elems__wrapper">
+                    <p class="elems__title">Гора Эльбрус</p>
+                    <button type="button" class="elems__like"></button>
+                </div>
+            </li>
+            <li class="elems__item">
+                <a href="#" class="elems__img-link"><img src="./images/dombay.jpg" alt="Домбай" class="elems__img"></a>
+                <div class="elems__wrapper">
+                    <p class="elems__title">Домбай</p>
+                    <button type="button" class="elems__like"></button>
+                </div>
+            </li>
+            <li class="elems__item">
+                <a href="" class="elems__img-link"><img src="./images/elbrus.jpg" alt="Эльбрус" class="elems__img"></a>
+                <div class="elems__wrapper">
+                    <p class="elems__title">Гора Эльбрус</p>
+                    <button type="button" class="elems__like"></button>
+                </div>
+            </li>
+            <li class="elems__item">
+                <a href="" class="elems__img-link"><img src="./images/dombay.jpg" alt="Домбай" class="elems__img"></a>
+                <div class="elems__wrapper">
+                    <p class="elems__title">Домбай</p>
+                    <button type="button" class="elems__like"></button>
+                </div>
+            </li>
+            <li class="elems__item">
+                <a href="" class="elems__img-link"><img src="./images/karachaevsk.jpg" alt="Карачаево-Черкесия"
+                        class="elems__img"></a>
+                <div class="elems__wrapper">
+                    <p class="elems__title">Карачаево-Черкесия</p>
+                    <button type="button" class="elems__like"></button>
+                </div>
+            </li>
+        </ul>
     </main>
-
+    <footer class="footer">
+        <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
+    </footer>
 </body>
 
 </html>

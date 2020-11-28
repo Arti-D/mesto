@@ -1,0 +1,18 @@
+.profile__edit-button {
+  background: none;
+  outline: none;
+  border: none;
+  width: min-content;
+  height: min-content;
+  padding: 0;
+}
+
+.profile__edit-button:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.profile__wrapper {
+  display: flex;
+  align-items: baseline;
+}
