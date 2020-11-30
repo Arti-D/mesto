@@ -21,7 +21,7 @@ closeButton.addEventListener('click', closePopup);
 
 
 function formSubmitHandler(evt) {
-    console.log('тык');
+    
     evt.preventDefault();
 
     let nameInput = nameField.value;
