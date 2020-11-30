@@ -20,6 +20,7 @@
 @import url(../blocks/elems/__img-link/elems___img-link.css);
 @import url(../blocks/elems/__img/elems__img.css);
 @import url(../blocks/elems/__wrapper/elems__wrapper.css);
+@import url(../blocks/elems/__list/elems__list.css);
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
 @import url(../blocks/popup/popup.css);

@@ -29,41 +29,42 @@
             <button class="profile__add-button" type="button">
             </button>
         </section>
-        <ul class="elems">
+        <section class="elems"></section>
+        <ul class="elems__list">
             <li class="elems__item">
                 <a href="#" class="elems__img-link" target="_blank">
                     <img src="./images/karachaevsk.jpg" alt="Карачаевск" class="elems__img">
                 </a>
                 <div class="elems__wrapper">
-                    <p class="elems__title">Карачаевск</p>
+                    <h2 class="elems__title">Карачаевск</h2>
                     <button type="button" class="elems__like"></button>
                 </div>
             </li>
             <li class="elems__item">
                 <a href="#" class="elems__img-link" target="_blank"><img src="./images/elbrus.jpg" alt="Эльбрус" class="elems__img"></a>
                 <div class="elems__wrapper">
-                    <p class="elems__title">Гора Эльбрус</p>
+                    <h2 class="elems__title">Гора Эльбрус</h2>
                     <button type="button" class="elems__like"></button>
                 </div>
             </li>
             <li class="elems__item">
                 <a href="#" class="elems__img-link" target="_blank"><img src="./images/dombay.jpg" alt="Домбай" class="elems__img"></a>
                 <div class="elems__wrapper">
-                    <p class="elems__title">Домбай</p>
+                    <h2 class="elems__title">Домбай</h2>
                     <button type="button" class="elems__like"></button>
                 </div>
             </li>
             <li class="elems__item">
                 <a href="#" class="elems__img-link" target="_blank"><img src="./images/elbrus.jpg" alt="Эльбрус" class="elems__img"></a>
                 <div class="elems__wrapper">
-                    <p class="elems__title">Гора Эльбрус</p>
+                    <h2 class="elems__title">Гора Эльбрус</h2>
                     <button type="button" class="elems__like"></button>
                 </div>
             </li>
             <li class="elems__item">
                 <a href="#" class="elems__img-link" target="_blank"><img src="./images/dombay.jpg" alt="Домбай" class="elems__img"></a>
                 <div class="elems__wrapper">
-                    <p class="elems__title">Домбай</p>
+                    <h2 class="elems__title">Домбай</h2>
                     <button type="button" class="elems__like"></button>
                 </div>
             </li>
@@ -71,7 +72,7 @@
                 <a href="#" class="elems__img-link" target="_blank"><img src="./images/karachaevsk.jpg" alt="Карачаево-Черкесия"
                         class="elems__img"></a>
                 <div class="elems__wrapper">
-                    <p class="elems__title">Карачаево-Черкесия</p>
+                    <h2 class="elems__title">Карачаево-Черкесия</h2>
                     <button type="button" class="elems__like"></button>
                 </div>
             </li>
@@ -84,9 +85,9 @@
         <div class="popup__container">
             <div class="popup__content">
                 <h2 class="popup__title">Редактировать профиль</h2>
-                <form class="popup__form">
-                    <input type="text" placeholder="Имя" class="popup__input popup__input_name">
-                    <input type="text" placeholder="О себе" class="popup__input popup__input_about">
+                <form class="popup__form" name="profileInfo">
+                    <input type="text" placeholder="Имя" class="popup__input popup__input_type_name">
+                    <input type="text" placeholder="О себе" class="popup__input popup__input_type_about">
                     <button class="popup__save-btn" type="submit">Сохранить</button>
                 </form>
 

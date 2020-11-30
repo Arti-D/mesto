@@ -4,6 +4,9 @@
   line-height: 1.2;
   font-weight: 400;
   margin: 15px 0 0;
+  max-width: 294px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 @media (max-width: 930px) {

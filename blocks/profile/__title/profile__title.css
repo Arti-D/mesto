@@ -4,6 +4,9 @@
   line-height: 1.1;
   font-weight: 500;
   margin: 0 18px 0 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 294px;
 }
 
 @media (max-width: 950px) {
@@ -17,5 +20,6 @@
   .profile__title {
     font-size: 27px;
     line-height: 1.2;
+    min-width: 189px;
   }
 }

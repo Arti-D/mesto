@@ -10,7 +10,7 @@
     .header {
         padding-top: 28px;
         padding-bottom: 30px;
-        width: 100%;
+        width: calc(100% - 28px);
         padding-left: 28px;
     }
 }
