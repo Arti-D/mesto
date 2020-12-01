@@ -1,5 +1,8 @@
 .header__logo-link {
-    display: block;
-    width: fit-content;
+  display: block;
+  width: fit-content;
 }
 
+.header__logo-link:hover {
+  opacity: 0.7;
+}

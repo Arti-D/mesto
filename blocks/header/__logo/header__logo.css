@@ -2,10 +2,6 @@
     opacity: 1;
 }
 
-.header__logo:hover {
-    opacity: .7;
-}
-
 @media (max-width: 480px) {
     .header__logo {
         width: 105px;
