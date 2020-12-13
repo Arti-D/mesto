@@ -1,22 +1,18 @@
 .elems__like {
-    background-image: url(../../../images/like.svg);
+    background: url(../../../images/like.svg);
     background-repeat: no-repeat;
     background-position: center;
     border: 0;
     padding: 0;
     outline-style: none;
     background-size: contain;
+    background-color: #fff;
     width: 20px;
     height: 20px;
-    background-color: white;
     flex-shrink: 0;
 }
 
 .elems__like:hover {
     cursor: pointer;
     opacity: 0.7;
-}
-
-.elems__like:focus {
-    background-image: url(../../../images/black-like.svg);
 }

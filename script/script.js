@@ -47,8 +47,17 @@ function composeCard(item){
     cardImage.src = item.link;
     cardImage.alt = item.name;
     cardTitle.textContent = item.name;
+
+    const likeBtn = newCard.querySelector('.elems__like');
+    likeBtn.addEventListener('click', like);
+
     return newCard;
 };
+
+function like(ev){
+    ev.target.classList.toggle('elems__like_status_active');
+    console.log('тык');
+}
 
 function openPopup() {
     popup.classList.add('popup_opened');
