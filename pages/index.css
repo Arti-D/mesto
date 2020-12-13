@@ -22,6 +22,7 @@
 @import url(../blocks/elems/__img/elems__img.css);
 @import url(../blocks/elems/__wrapper/elems__wrapper.css);
 @import url(../blocks/elems/__list/elems__list.css);
+@import url(../blocks/elems/__remove-btn/elems__remove-btn.css);
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
 @import url(../blocks/popup/popup.css);
@@ -33,3 +34,14 @@
 @import url(../blocks/popup/__container/popup__container.css);
 @import url(../blocks/popup/__close-btn/popup__close-btn.css);
 @import url(../blocks/popup/_opened/popup_opened.css);
+@import url(../blocks/popup-add/__container/popup-add__container.css);
+@import url(../blocks/popup-add/__content/popup-add__content.css);
+@import url(../blocks/popup-add/__form/popup-add__form.css);
+@import url(../blocks/popup-add/__input/popup-add__input.css);
+@import url(../blocks/popup-add/__input/_type/popup-add__input_type_link.css);
+@import url(../blocks/popup-add/__input/_type/popup-add__input_type_title.css);
+@import url(../blocks/popup-add/__make-btn/popup-add__make-btn.css);
+@import url(../blocks/popup-add/__title/popup-add__title.css);
+@import url(../blocks/popup-add/popup-add.css);
+@import url(../blocks/popup-add/_opened/popup-add_opened.css);
+@import url(../blocks/popup-add/__close-btn/popup-add__close-btn.css);
