@@ -10,7 +10,8 @@
 
 <body class="page">
     <header class="header">
-        <a href="#" target="_blank" class="header__logo-link"><img class="header__logo" alt="Логотип" src="./images/logo.svg">
+        <a href="#" target="_blank" class="header__logo-link"><img class="header__logo" alt="Логотип"
+                src="./images/logo.svg">
         </a>
     </header>
     <main class="content">
@@ -30,9 +31,9 @@
             </button>
         </section>
         <section class="elems">
-        <ul class="elems__list">
-            
-        </ul>
+            <ul class="elems__list">
+
+            </ul>
         </section>
     </main>
     <footer class="footer">
@@ -43,8 +44,10 @@
             <div class="popup-add__content">
                 <h2 class="popup-add__title">Новое место</h2>
                 <form name="card-add" class="popup-add__form">
-                    <input class="popup-add__input popup-add__input_type_title" type="text" name="img-title-input" placeholder="Название">
-                    <input class="popup-add__input popup-add__input_type_link" type="text" name="img-link-input" placeholder="Ссылка на картинку">
+                    <input class="popup-add__input popup-add__input_type_title" type="text" name="img-title-input"
+                        placeholder="Название">
+                    <input class="popup-add__input popup-add__input_type_link" type="text" name="img-link-input"
+                        placeholder="Ссылка на картинку">
                     <button class="popup-add__make-btn" type="button">Сохранить</button>
                 </form>
                 <button type="button" class="popup-add__close-btn"></button>
@@ -57,7 +60,8 @@
                 <h2 class="popup__title">Редактировать профиль</h2>
                 <form class="popup__form" name="profile-info">
                     <input name="name-input" type="text" placeholder="Имя" class="popup__input popup__input_type_name">
-                    <input name="about-input" type="text" placeholder="О себе" class="popup__input popup__input_type_about">
+                    <input name="about-input" type="text" placeholder="О себе"
+                        class="popup__input popup__input_type_about">
                     <button class="popup__save-btn" type="submit">Сохранить</button>
                 </form>
 
@@ -65,8 +69,19 @@
             </div>
         </div>
     </div>
+    <div class="popup-img">
+        <div class="popup-img__container">
+            <div class="popup-img__content">
+                <figure class="popup-img__figure">
+                    <img src="./images/elbrus.jpg" alt="ничего неть(" class="popup-img__picture">
+                    <figcaption class="popup-img__caption">khuhgjk</figcaption>
+                    <button type="button" class="popup-img__close-btn"></button>
+                </figure>
+            </div>
+        </div>
+    </div>
     <template class="template">
-        <li class="elems__item">
+        <li class="elems__item elem">
             <a href="#" class="elems__img-link" target="_blank">
                 <img src="https://via.placeholder.com" alt="что-то сломалось(" class="elems__img">
             </a>
@@ -76,6 +91,9 @@
             </div>
             <button class="elems__remove-btn" type="button"></button>
         </li>
+    </template>
+    <template class="template-popup-img popup-img_opened">
+
     </template>
     <script src="./script/script.js"></script>
 </body>

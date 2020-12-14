@@ -41,7 +41,6 @@ const cardLinkField = document.querySelector('.popup-add__input_type_link');
 const cardTitleField = document.querySelector('.popup-add__input_type_title');
 
 
-
 function renderList(){
     const cardList = initialCards.map(composeCard);
     cardListContainer.append(...cardList);
@@ -55,20 +54,27 @@ function composeCard(item){
     cardImage.src = item.link;
     cardImage.alt = item.name;
     
-    
     const likeBtn = newCard.querySelector('.elems__like');
     likeBtn.addEventListener('click', like);
     
     addNewCardListener(newCard);
+
+    removeCardListener(newCard);
+
+
     return newCard;
 };
+
 
 function addNewCardListener() {
     const newCardBtn = document.querySelector('.popup-add__make-btn');
     newCardBtn.addEventListener('click', addNewCard);
 }
 
-
+function removeCardListener(item) {
+    const removeBtn = item.querySelector('.elems__remove-btn');
+    removeBtn.addEventListener('click', removeCard);
+}
 
 function addNewCard() {
     const cardTitle = cardTitleField.value;
@@ -78,6 +84,11 @@ function addNewCard() {
     cardTitleField.value = '';
     cardLinkField.value = '';
     closeAddPopup();
+}
+
+function removeCard(ev) {
+    const targetCard = ev.target.closest('.elem');
+    targetCard.remove();
 }
 
 function like(ev){
@@ -118,5 +129,11 @@ function closeAddPopup() {
     popupAddCard.classList.remove('popup-add_opened');
 }
 closeAddPopupBtn.addEventListener('click', closeAddPopup);
+
+const templateImgPopup = document.querySelector('.template-popup-img');
+
+function openImagePopup() {
+    
+}
 
 renderList();
