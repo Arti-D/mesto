@@ -26,8 +26,3 @@
     }
 }
 
-@media (max-width: 350px) {
-    .popup-img__close-btn{
-        top: -15px;
-    }
-}

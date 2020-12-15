@@ -4,3 +4,8 @@
   height: 282px;
   object-fit: cover;
 }
+
+.elems__img:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
