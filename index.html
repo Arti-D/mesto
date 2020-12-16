@@ -21,13 +21,13 @@
                 <div class="profile__info">
                     <div class="profile__wrapper">
                         <h1 class="profile__title">Жак-Ив Кусто</h1>
-                        <button type="button" class="profile__edit-button">
+                        <button aria-label="edit" title="edit" type="button" class="profile__edit-button">
                         </button>
                     </div>
                     <p class="profile__subtitle">Исследователь океана</p>
                 </div>
             </div>
-            <button class="profile__add-button" type="button">
+            <button class="profile__add-button" aria-label="edit" title="add" type="button">
             </button>
         </section>
         <section class="elems">
@@ -37,49 +37,43 @@
     <footer class="footer">
         <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
-    <div class="popup-add">
-        <div class="popup-add__container">
-            <div class="popup-add__content">
-                <h2 class="popup-add__title">Новое место</h2>
-                <form name="card-add" class="popup-add__form">
-                    <input class="popup-add__input popup-add__input_type_title" type="text" name="img-title-input"
+    <div class="popup popup-add">
+            <div class="popup__content">
+                <h2 class="popup__title">Новое место</h2>
+                <form name="card-add" class="popup__form popup__form_add">
+                    <input class="popup__input popup__input_type_title" type="text" name="img-title-input"
                         placeholder="Название">
-                    <input class="popup-add__input popup-add__input_type_link" type="text" name="img-link-input"
+                    <input class="popup__input popup__input_type_link" type="text" name="img-link-input"
                         placeholder="Ссылка на картинку">
-                    <button class="popup-add__make-btn" type="submit">Сохранить</button>
+                    <button class="popup__btn popup-add__make-btn" type="submit">Сохранить</button>
                 </form>
-                <button type="button" class="popup-add__close-btn"></button>
+                <button type="button" class="popup__close-btn popup__close-btn_add"></button>
             </div>
-        </div>
     </div>
-    <div class="popup">
-        <div class="popup__container">
+    <div class="popup popup-edit">
             <div class="popup__content">
                 <h2 class="popup__title">Редактировать профиль</h2>
-                <form class="popup__form" name="profile-info">
+                <form class="popup__form popup__form_edit" name="profile-info">
                     <input name="name-input" type="text" placeholder="Имя" class="popup__input popup__input_type_name">
                     <input name="about-input" type="text" placeholder="О себе"
                         class="popup__input popup__input_type_about">
-                    <button class="popup__save-btn" type="submit">Сохранить</button>
+                    <button class="popup__btn popup__save-btn" type="submit">Сохранить</button>
                 </form>
-                <button class="popup__close-btn" type="button"></button>
-            </div>
+                <button class="popup__close-btn popup__close-btn_edit" type="button"></button>
         </div>
     </div>
-    <div class="popup-img">
-        <div class="popup-img__container">
-            <div class="popup-img__content">
-                <figure class="popup-img__figure">
-                    <img src="./images/elbrus.jpg" alt="ничего неть(" class="popup-img__picture">
-                    <figcaption class="popup-img__caption">тык</figcaption>
-                    <button type="button" class="popup-img__close-btn"></button>
-                </figure>
+    <div class="popup popup-img">
+            <div class="popup-img__content"> 
+                    <img src="./images/no-img.png" alt="" class="popup-img__picture"> 
+                    <p class="popup-img__caption"></p> 
+                    <button type="button" class="popup__close-btn popup-img__close-btn"></button> 
             </div>
-        </div>
+        </div> 
+    </div> 
     </div>
     <template class="template">
         <li class="elems__item elem">
-                <img src="https://via.placeholder.com" alt="что-то сломалось(" class="elems__img">
+                <img src="./images/no-img.png" alt="" class="elems__img">
             <div class="elems__wrapper">
                 <h2 class="elems__title"></h2>
                 <button type="button" class="elems__like"></button>
@@ -87,6 +81,7 @@
             <button class="elems__remove-btn" type="button"></button>
         </li>
     </template>
+    <script src="./script/initialCards.js"></script>
     <script src="./script/script.js"></script>
 </body>
 
