@@ -107,6 +107,7 @@ closeEditButton.addEventListener('click', () => {
 
 closeAddPopupBtn.addEventListener('click', () => {
     closePopup(popupAddCard);
+    newCardBtn.reset();
 });
 
 closeImgPopupBtn.addEventListener('click', () => {
