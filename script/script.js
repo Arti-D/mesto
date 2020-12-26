@@ -2,7 +2,6 @@ const nameField = document.querySelector('.popup__input_type_name');
 const aboutField  = document.querySelector('.popup__input_type_about');
 const profileName = document.querySelector('.profile__title');
 const about = document.querySelector('.profile__subtitle');
-const formElement = document.querySelector('.popup__form_edit')
 const cardListContainer = document.querySelector('.elems__list');
 const templateCard = document.querySelector('.template');
 const cardLinkField = document.querySelector('.popup__input_type_link');
@@ -11,6 +10,7 @@ const closeEditButton = document.querySelector('.popup__close-btn_edit');
 const closeImgPopupBtn = document.querySelector('.popup-img__close-btn');
 const closeAddPopupBtn = document.querySelector('.popup__close-btn_add');
 const editButton = document.querySelector('.profile__edit-button');
+const formElement = document.querySelector('.popup__form_edit')
 const newCardBtn = document.querySelector('.popup__form_add');
 const addBtn = document.querySelector('.profile__add-button');
 const popupEdit = document.querySelector('.popup-edit');
@@ -18,6 +18,10 @@ const popupAddCard = document.querySelector('.popup-add');
 const popupImage = document.querySelector('.popup-img');
 const modalImg = document.querySelector('.popup-img__picture');
 const modalTitle = document.querySelector('.popup-img__caption');
+// function solveOpenPopupProblem(form) {
+//     const formSpan = form.querySelector('.error');
+//     formSpan.textContent = '';
+// }
 
 function renderList(){
     const cardList = initialCards.map(composeCard);
@@ -83,8 +87,10 @@ function formSubmitHandler(ev) {
 }
 formElement.addEventListener('submit', formSubmitHandler);
 
+
 function openPopup(ev) {
     ev.classList.add('popup_opened');
+
 }
 
 function closePopup(ev) {
@@ -92,13 +98,17 @@ function closePopup(ev) {
 }
 
 editButton.addEventListener('click', () => {
+    const saveProfile = popupEdit.querySelector('.popup__save-btn');
     openPopup(popupEdit);
     nameField.value = profileName.textContent;
     aboutField.value = about.textContent;
+    checkButtonStatus(saveProfile, true);
 });
 
 addBtn.addEventListener('click', () => {
+    const addNewCardBtn = popupAddCard.querySelector('.popup-add__make-btn');
     openPopup(popupAddCard);
+    checkButtonStatus(addNewCardBtn, false);
 });
 
 closeEditButton.addEventListener('click', () => {

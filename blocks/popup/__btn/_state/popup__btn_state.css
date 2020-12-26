@@ -1,0 +1,12 @@
+.popup__btn_state_inval {
+    cursor: auto;
+    color: #000;
+    background-color: #E5E5E5;
+    border: 1px solid #000;
+    opacity: .2;
+}
+
+.popup__btn_state_inval:hover {
+    opacity: .2;
+    cursor: auto;
+}
