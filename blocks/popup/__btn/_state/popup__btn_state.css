@@ -1,4 +1,4 @@
-.popup__btn_state_inval {
+.popup__btn_state_invalid {
     cursor: auto;
     color: #000;
     background-color: #E5E5E5;
@@ -6,7 +6,7 @@
     opacity: .2;
 }
 
-.popup__btn_state_inval:hover {
+.popup__btn_state_invalid:hover {
     opacity: .2;
     cursor: auto;
 }
