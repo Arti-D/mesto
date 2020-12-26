@@ -84,10 +84,12 @@ formElement.addEventListener("submit", formSubmitHandler);
 
 function openPopup(ev) {
   ev.classList.add("popup_opened");
+  document.addEventListener("keydown", closePopupByEscape);
 }
 
 function closePopup(ev) {
   ev.classList.remove("popup_opened");
+  document.removeEventListener("keydown", closePopupByEscape)
 }
 
 editButton.addEventListener("click", () => {
@@ -95,13 +97,13 @@ editButton.addEventListener("click", () => {
   openPopup(popupEdit);
   nameField.value = profileName.textContent;
   aboutField.value = about.textContent;
-  checkButtonStatus(saveProfile, true);
+  checkButtonStatus(saveProfile, true, validationConfig);
 });
 
 addBtn.addEventListener("click", () => {
   const addNewCardBtn = popupAddCard.querySelector(".popup-add__make-btn");
   openPopup(popupAddCard);
-  checkButtonStatus(addNewCardBtn, false);
+  checkButtonStatus(addNewCardBtn, false, validationConfig);
 });
 
 closeEditButton.addEventListener("click", () => {
@@ -117,14 +119,12 @@ closeImgPopupBtn.addEventListener("click", () => {
   closePopup(popupImage);
 });
 
-function closePopupByEscape() {
-  document.addEventListener("keydown", function (ev) {
+function closePopupByEscape(ev) {
+    const popupOpened = document.querySelector('.popup_opened');
     if (ev.key === "Escape") {
-      document.querySelector(".popup_opened").classList.remove("popup_opened");
-    }
-  });
+     popupOpened.classList.remove("popup_opened");
+     }
 }
-closePopupByEscape();
 
 function closePopupOnOverlay() {
     document.addEventListener('mousedown', function (evt) {
