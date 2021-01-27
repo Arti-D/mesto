@@ -1,5 +1,6 @@
 import Card from './Card.js';
 import FormValidator from './FormValidation.js';
+import { initialCards } from './initialCards.js';
 
 const validationConfig = {
   formSelector: '.popup__form',
@@ -26,7 +27,7 @@ const addBtn = document.querySelector(".profile__add-button");
 const popupEdit = document.querySelector(".popup-edit");
 const popupAddCard = document.querySelector(".popup-add");
 const popupImage = document.querySelector(".popup-img");
-
+const popupImagePicture = popupImage.querySelector('.popup-img__picture')
 // Вадидация форм
 
 const validationEditForm = new FormValidator(validationConfig, formElement)
@@ -39,8 +40,8 @@ validationAddForm.enableValidation();
 
 function openPopupImage(name, link) {
   popupImage.querySelector('.popup-img__caption').textContent = name;
-  popupImage.querySelector('.popup-img__picture').alt = name;
-  popupImage.querySelector('.popup-img__picture').src = link;
+  popupImagePicture.alt = name;
+  popupImagePicture.src = link;
   openPopup(popupImage);
 }
 
@@ -58,7 +59,7 @@ function closePopup(ev) {
 
 function closePopupByEscape(ev) {
   const popupOpened = document.querySelector('.popup_opened');
-  if (ev.key === "Escape") {
+  if (ev.key === "Escape" && popupOpened != null) {
    popupOpened.classList.remove("popup_opened");
    }
 }
@@ -96,18 +97,13 @@ function formSubmitHandler(ev) {
 }
 formElement.addEventListener("submit", formSubmitHandler);
 
-// Очистка сообщений об ошибках
+// Рендер карточек из массива
 
-function clearErrorMessage(ev) {
-    const errorContainer = ev.querySelectorAll('.error');
-    const errorInputs = ev.querySelectorAll('.popup__input_error');
-    errorContainer.forEach(span => {
-        span.textContent = '';
-    });
-    errorInputs.forEach(input => {
-        input.classList.remove('popup__input_error');
-    });
-}
+initialCards.forEach((item) => {
+  const card = new Card(item, 'template', openPopupImage);
+  const cardElem = card.generateCard();
+  cardListContainer.append(cardElem);
+})
 
 // Слушатели кнопок отправки формы
 
@@ -127,15 +123,17 @@ addBtn.addEventListener("click", () => {
 
 closeEditButton.addEventListener("click", () => {
   closePopup(popupEdit);
-  clearErrorMessage(popupEdit);
+  validationEditForm.clearErrorMessage();
 });
 
 closeAddPopupBtn.addEventListener("click", () => {
   closePopup(popupAddCard);
-  clearErrorMessage(popupAddCard);
+  validationAddForm.clearErrorMessage();
   newCardBtn.reset();
 });
 
 closeImgPopupBtn.addEventListener("click", () => {
   closePopup(popupImage);
 });
+
+export {openPopupImage}

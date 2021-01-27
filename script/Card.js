@@ -1,26 +1,5 @@
-import { initialCards } from './initialCards.js';
 
-const cardListContainer = document.querySelector(".elems__list");
-const popup = document.querySelector('.popup-img')
-
-function closePopupByEscape(ev) {
-    const popupOpened = document.querySelector('.popup_opened');
-    if (ev.key === "Escape") {
-     popupOpened.classList.remove("popup_opened");
-     }
-}
-
-function openPopupImage(name, link) {
-    popup.querySelector(".popup-img__caption").textContent = name;
-    popup.querySelector('.popup-img__picture').alt = name;
-    popup.querySelector('.popup-img__picture').src = link;
-    openPopup(popup);
-  }
-
-function openPopup(ev) {
-   ev.classList.add("popup_opened");
-   document.addEventListener("keydown", closePopupByEscape);
- }
+import { openPopupImage } from './index.js'
 
 
 export default class Card {
@@ -71,12 +50,7 @@ export default class Card {
 
     _removeCard() {
         this._element.closest(".elem").remove()
+        this._element = null;
     }
     
 }
-
-initialCards.forEach((item) => {
-    const card = new Card(item, 'template', openPopupImage);
-    const cardElem = card.generateCard();
-    cardListContainer.append(cardElem);
-})
