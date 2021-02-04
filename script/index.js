@@ -1,6 +1,7 @@
 import Card from './Card.js';
 import FormValidator from './FormValidation.js';
 import { initialCards } from './initialCards.js';
+import Section from "./Section.js";
 
 const validationConfig = {
   formSelector: '.popup__form',
@@ -99,12 +100,17 @@ formElement.addEventListener("submit", formSubmitHandler);
 
 // Рендер карточек из массива
 
-initialCards.forEach((item) => {
+// initialCards.forEach((item) => {
+//   const card = new Card(item, 'template', openPopupImage);
+//   const cardElem = card.generateCard();
+//   cardListContainer.append(cardElem);
+// })
+const cardList = new Section({data: initialCards, renderer: (item) => {
   const card = new Card(item, 'template', openPopupImage);
   const cardElem = card.generateCard();
-  cardListContainer.append(cardElem);
-})
-
+  cardList.addItem(cardElem)
+}}, cardListContainer)
+cardList.renderItems();
 // Слушатели кнопок отправки формы
 
 editButton.addEventListener("click", () => {
