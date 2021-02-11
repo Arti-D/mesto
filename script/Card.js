@@ -1,13 +1,10 @@
 
-import { openPopupImage } from './index.js'
-
-
 export default class Card {
-    constructor(data, cardSelector, openPopupImage) {
+    constructor(data, cardSelector, handleCardClick) {
         this._name = data.name;
         this._link = data.link;
         this._cardSelector = cardSelector;
-        this._openPopupImage = openPopupImage;
+        this._openPopupImage = handleCardClick;
     }
 
     _getTemplate() {

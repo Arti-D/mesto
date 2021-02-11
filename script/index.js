@@ -2,7 +2,7 @@ import Card from './Card.js';
 import FormValidator from './FormValidation.js';
 import { initialCards } from './initialCards.js';
 import Section from "./Section.js";
-
+import PopupWithImage from './PopupWithImage.js'
 const validationConfig = {
   formSelector: '.popup__form',
   inputSelector: '.popup__input',
@@ -27,8 +27,6 @@ const newCardBtn = document.querySelector(".popup__form_add");
 const addBtn = document.querySelector(".profile__add-button");
 const popupEdit = document.querySelector(".popup-edit");
 const popupAddCard = document.querySelector(".popup-add");
-const popupImage = document.querySelector(".popup-img");
-const popupImagePicture = popupImage.querySelector('.popup-img__picture')
 // Вадидация форм
 
 const validationEditForm = new FormValidator(validationConfig, formElement)
@@ -39,17 +37,26 @@ validationAddForm.enableValidation();
 
 // Открытие попапов
 
-function openPopupImage(name, link) {
-  popupImage.querySelector('.popup-img__caption').textContent = name;
-  popupImagePicture.alt = name;
-  popupImagePicture.src = link;
-  openPopup(popupImage);
+// function openPopupImage(name, link) {
+//   popupImage.querySelector('.popup-img__caption').textContent = name;
+//   popupImagePicture.alt = name;
+//   popupImagePicture.src = link;
+//   openPopup(popupImage);
+// }
+
+const popupWithImage = new PopupWithImage('.popup-img')
+popupWithImage.setEventListeners() 
+
+function handleCardClick(name, link) {
+  popupWithImage.open(name, link)
 }
 
-function openPopup(ev) {
-  ev.classList.add("popup_opened");
-  document.addEventListener("keydown", closePopupByEscape);
-}
+// function openPopup(ev) {
+//   ev.classList.add("popup_opened");
+//   document.addEventListener("keydown", closePopupByEscape);
+// }
+
+
 
 // Закрытие попапов
 
@@ -80,7 +87,7 @@ function addNewCard(ev) {
   ev.preventDefault(ev);
   const cardTitle = cardTitleField.value;
   const cardLink = cardLinkField.value;
-  const card = new Card({ name: cardTitle, link: cardLink }, 'template', openPopupImage);
+  const card = new Card({ name: cardTitle, link: cardLink }, 'template', handleCardClick);
   const cardElem = card.generateCard();
   cardListContainer.prepend(cardElem);
   newCardBtn.reset();
@@ -106,11 +113,12 @@ formElement.addEventListener("submit", formSubmitHandler);
 //   cardListContainer.append(cardElem);
 // })
 const cardList = new Section({data: initialCards, renderer: (item) => {
-  const card = new Card(item, 'template', openPopupImage);
+  const card = new Card(item, 'template', handleCardClick);
   const cardElem = card.generateCard();
   cardList.addItem(cardElem)
 }}, cardListContainer)
 cardList.renderItems();
+
 // Слушатели кнопок отправки формы
 
 editButton.addEventListener("click", () => {
@@ -138,8 +146,6 @@ closeAddPopupBtn.addEventListener("click", () => {
   newCardBtn.reset();
 });
 
-closeImgPopupBtn.addEventListener("click", () => {
-  closePopup(popupImage);
-});
-
-export {openPopupImage}
+// closeImgPopupBtn.addEventListener("click", () => {
+//   closePopup(popupImage);
+// });
