@@ -30,7 +30,5 @@ export default class Popup {
         this.close();
       }
     });
-
-    console.log(this._popup);
   }
 }
