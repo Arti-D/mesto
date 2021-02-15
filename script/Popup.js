@@ -1,7 +1,8 @@
+import { escBtn } from '../src/index.js';
+
 export default class Popup {
   constructor(popupSelector) {
-    this._selector = popupSelector;
-    this._popup = document.querySelector(this._selector);
+    this._popup = document.querySelector(popupSelector);
     this._handleEscClose = this._handleEscClose.bind(this)
   }
 
@@ -16,7 +17,7 @@ export default class Popup {
   }
 
   _handleEscClose(ev) {
-    if (ev.key === "Escape") {
+    if (ev.key === escBtn) {
       this.close();
     }
   }

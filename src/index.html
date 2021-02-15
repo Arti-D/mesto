@@ -69,14 +69,14 @@
     </div>
     <div class="popup popup-img">
         <div class="popup-img__content">
-            <img src="./images/no-img.png" alt="#" class="popup-img__picture">
+            <img src="<%=require('../images/no-img.png')%>" alt="#" class="popup-img__picture">
             <p class="popup-img__caption"></p>
             <button type="button" class="popup__close-btn popup-img__close-btn"></button>
         </div>
     </div>
     <template class="template">
         <li class="elems__item elem">
-            <img src="./images/no-img.png" alt="#" class="elems__img">
+            <img src="<%=require('../images/no-img.png')%>" alt="#" class="elems__img">
             <div class="elems__wrapper">
                 <h2 class="elems__title"></h2>
                 <button type="button" class="elems__like"></button>
@@ -84,10 +84,6 @@
             <button class="elems__remove-btn" type="button"></button>
         </li>
     </template>
-    <script type="module" src="./script/index.js"></script>
-    <!-- <script type="module" src="./script/validate.js"></script> -->
-    <!-- <script type="module" src="./script/Card.js"></script> -->
-    <!-- <script src="./script/7script.js"></script> -->
 </body>
 
 </html>

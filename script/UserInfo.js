@@ -6,14 +6,11 @@ export default class UserInfo {
       (this._info = "");
   }
 
-  updateUserInfo() {
-    this._profileName.value = this._name;
-    this._profileInfo.value = this._info;
-  }
-
   setUserInfo(newName, newInfo) {
     this._name = newName;
     this._info = newInfo;
+    this._profileName.value = this._name;
+    this._profileInfo.value = this._info;
   }
 
   getUserInfo() {

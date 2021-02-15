@@ -26,7 +26,7 @@ const editButton = document.querySelector(".profile__edit-button");
 const formElement = document.querySelector(".popup__form_edit");
 const newCardBtn = document.querySelector(".popup__form_add");
 const addBtn = document.querySelector(".profile__add-button");
-
+export const escBtn = 'Escape';
 // Вадидация форм
 
 const validationEditForm = new FormValidator(validationConfig, formElement);
@@ -66,13 +66,11 @@ const userInfo = new UserInfo({
   infoElement: aboutField,
 });
 userInfo.setUserInfo(profileName.textContent, aboutProfile.textContent);
-userInfo.updateUserInfo();
 
 const popupWithEditForm = new PopupWithForm({
   popupSelector: ".popup-edit",
   handleSubmitForm: (data) => {
     userInfo.setUserInfo(data.name, data.about);
-    userInfo.updateUserInfo();
     popupWithEditForm.close();
     profileName.textContent = data.name;
     aboutProfile.textContent = data.about;
@@ -80,7 +78,7 @@ const popupWithEditForm = new PopupWithForm({
 });
 popupWithEditForm.setEventListeners();
 editButton.addEventListener("click", () => {
-  userInfo.updateUserInfo();
+  userInfo.setUserInfo(profileName.textContent, aboutProfile.textContent);
   popupWithEditForm.open();
   validationEditForm.checkButtonStatus(true);
 });
