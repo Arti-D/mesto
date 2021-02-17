@@ -26,7 +26,7 @@ const editButton = document.querySelector(".profile__edit-button");
 const formElement = document.querySelector(".popup__form_edit");
 const newCardBtn = document.querySelector(".popup__form_add");
 const addBtn = document.querySelector(".profile__add-button");
-export const escBtn = 'Escape';
+
 // Вадидация форм
 
 const validationEditForm = new FormValidator(validationConfig, formElement);
