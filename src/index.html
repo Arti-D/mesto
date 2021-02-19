@@ -39,6 +39,18 @@
     <footer class="footer">
         <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
+    <div class="popup popup-avatar">
+        <div class="popup__content">
+            <h2 class="popup__title">Обновить аватар</h2>
+            <form name="avatar" class="popup__form popup__form_avatar" novalidate>
+                <input id="img-link-input" class="popup__input popup__input_type_link" type="url" name="img-link-input"
+                    placeholder="Ссылка на картинку" autocomplete="off" required>
+                <span id="img-link-input-error" class="error"></span>
+                <button class="popup__btn popup-add__make-btn" type="submit">Сохранить</button>
+            </form>
+            <button type="button" class="popup__close-btn popup__close-btn_avatar"></button>
+        </div>
+    </div>
     <div class="popup popup-add">
         <div class="popup__content">
             <h2 class="popup__title">Новое место</h2>
@@ -100,5 +112,4 @@
         </li>
     </template>
 </body>
-
 </html>
