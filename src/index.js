@@ -1,11 +1,12 @@
 import '../pages/index.css';
 import Card from "../script/Card.js";
 import FormValidator from "../script/FormValidation.js";
-import { initialCards } from "../script/initialCards.js";
+// import { initialCards } from "../script/initialCards.js";
 import Section from "../script/Section.js";
 import PopupWithImage from "../script/PopupWithImage.js";
 import PopupWithForm from "../script/PopupWithForm.js";
 import UserInfo from "../script/UserInfo.js";
+import Api from "../script/Api.js"
 
 const validationConfig = {
   formSelector: ".popup__form",
@@ -26,6 +27,32 @@ const editButton = document.querySelector(".profile__edit-button");
 const formElement = document.querySelector(".popup__form_edit");
 const newCardBtn = document.querySelector(".popup__form_add");
 const addBtn = document.querySelector(".profile__add-button");
+
+// Работа с API
+
+const config = {
+  url: "https://mesto.nomoreparties.co/v1/cohort-20",
+  headers: {
+    authorization: '7d190d24-45cc-41a1-907b-c30a1fbc5d49',
+    'Content-type': 'application/json'
+  }
+}
+const api = new Api(config)
+// api.getCards()
+//   .then(cards => {
+//     const cardList = new Section(
+//       {
+//         data: cards,
+//         renderer: (item) => {
+//           const card = new Card(item, "template", handleCardClick);
+//           const cardElem = card.generateCard();
+//           cardList.addItem(cardElem);
+//         },
+//       },
+//       cardListContainer
+//     );
+//     cardList.renderItems();
+//   })
 
 // Вадидация форм
 
@@ -48,7 +75,6 @@ function handleCardClick(name, link) {
 
 const cardList = new Section(
   {
-    data: initialCards,
     renderer: (item) => {
       const card = new Card(item, "template", handleCardClick);
       const cardElem = card.generateCard();
@@ -57,9 +83,17 @@ const cardList = new Section(
   },
   cardListContainer
 );
-cardList.renderItems();
+
+api.getCards()
+  .then(cards => {
+    cardList.renderItems(cards)
+  })
+  .catch(err => console.log(err))
+
 
 // Работа с формами //
+
+
 
 const userInfo = new UserInfo({
   nameElement: nameField,
