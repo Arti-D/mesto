@@ -39,7 +39,6 @@ const config = {
 const api = new Api(config)
 api.getCards()
   .then(cards => {
-    console.log(cards);
     cardList.renderItems(cards)
   })
   .catch(err => console.log(err))
@@ -52,6 +51,12 @@ api.getUserInfo()
   })
   .catch(err => console.log(err))
 
+
+
+
+// function delLike(cardId) {
+//    return 
+// }
 // Вадидация форм
 
 const validationEditForm = new FormValidator(validationConfig, formElement);
@@ -148,6 +153,21 @@ function createCard(data) {
       () => {
       popupDelete.open()
       popupDelete.setEventListeners(removeCard(card))
+    },
+    () => {
+          api.addLike(data._id)
+          .then(res => {
+            console.log(res);
+            card.updateLikes(res.likes)
+          })
+  
+    },
+    () => {
+      api.delLike(data._id).then(res => {
+        console.log(res);
+
+        card.updateLikes(res.likes)
+      })
     }
   );
   return card.generateCard();

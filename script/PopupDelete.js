@@ -4,7 +4,6 @@ export default class PopupDelete extends Popup {
     constructor(popupSelector, btnSelector) {
         super(popupSelector)
         this._btn = this._popup.querySelector(btnSelector)
-        console.log(this._btn);
     }
 
     setEventListeners(deleteCard) {
