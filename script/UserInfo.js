@@ -28,6 +28,13 @@ export default class UserInfo {
     this._profileInfo.value = this._info;
   }
 
+  setUserId(id){
+    this._id = id
+  }
+  getUserId() {
+    return this._id
+  }
+
   getUserInfo() {
     return {
       name: this._name,

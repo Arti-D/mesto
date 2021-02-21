@@ -22,10 +22,13 @@ export default class Card {
         this._element.querySelector('.elems__img').src = this._link;
         this._element.querySelector('.elems__title').alt = this._name;
         this._setEventListeners();
-
         return this._element;
     }
-
+    getLikes(data) {
+        this._numLikes = data.likes.length;
+        this._element.querySelector('.elems__number-of-likes').textContent = this._numLikes
+        // console.log(this._numLikes);
+    }
     _setEventListeners() {
         this._element.querySelector('.elems__like').addEventListener('click', () => {
             this._handleLikeClick();

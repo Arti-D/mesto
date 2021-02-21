@@ -21,8 +21,8 @@ const aboutField = document.querySelector(".popup__input_type_about");
 const profileName = document.querySelector(".profile__title");
 const aboutProfile = document.querySelector(".profile__subtitle");
 const cardListContainer = document.querySelector(".elems__list");
-const cardLinkField = document.querySelector(".popup__input_type_link");
-const cardTitleField = document.querySelector(".popup__input_type_title");
+// const cardLinkField = document.querySelector(".popup__input_type_link");
+// const cardTitleField = document.querySelector(".popup__input_type_title");
 const editButton = document.querySelector(".profile__edit-button");
 const formElement = document.querySelector(".popup__form_edit");
 const newCardBtn = document.querySelector(".popup__form_add");
@@ -41,6 +41,7 @@ const config = {
 const api = new Api(config)
 api.getCards()
   .then(cards => {
+    console.log(cards);
     cardList.renderItems(cards)
   })
   .catch(err => console.log(err))
@@ -49,6 +50,7 @@ api.getUserInfo()
   .then(userData => {
     userInfo.setUserInfo(userData);
     userInfo.setAvatar(userData)
+    userInfo.setUserId(userData._id)
   })
   .catch(err => console.log(err))
 
@@ -74,8 +76,10 @@ function handleCardClick(name, link) {
 const cardList = new Section(
   {
     renderer: (item) => {
+      // console.log(item);
       const card = new Card(item, "template", handleCardClick);
       const cardElem = card.generateCard();
+      card.getLikes(item)
       cardList.addItem(cardElem);
     },
   },
@@ -91,7 +95,6 @@ const userInfo = new UserInfo({
   infoField: aboutProfile,
   avatarElement: profileAvatar,
 });
-// userInfo.setUserInfo(profileName.textContent, aboutProfile.textContent);
 
 const popupWithEditForm = new PopupWithForm({
   popupSelector: ".popup-edit",
@@ -113,19 +116,21 @@ editButton.addEventListener("click", () => {
 const popupWithCardForm = new PopupWithForm({
   popupSelector: ".popup-add",
   handleSubmitForm: (data) => {
-    const cardTitle = cardTitleField.value;
-    const cardLink = cardLinkField.value;
+    console.log(data);
     const card = new Card(
-      { name: cardTitle, link: cardLink },
+      { name: data.name, link: data.link },
       "template",
       handleCardClick
     );
     const cardElem = card.generateCard();
     cardListContainer.prepend(cardElem);
+    api.addCard(data)
+    .catch(err => console.log(err))
     popupWithCardForm.close();
   },
 });
 popupWithCardForm.setEventListeners();
+
 addBtn.addEventListener("click", () => {
   popupWithCardForm.open();
   validationAddForm.checkButtonStatus(false);
