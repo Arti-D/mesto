@@ -27,6 +27,7 @@ const editButton = document.querySelector(".profile__edit-button");
 const formElement = document.querySelector(".popup__form_edit");
 const newCardBtn = document.querySelector(".popup__form_add");
 const addBtn = document.querySelector(".profile__add-button");
+const profileAvatar = document.querySelector(".profile__avatar-img")
 
 // Работа с API
 
@@ -38,21 +39,18 @@ const config = {
   }
 }
 const api = new Api(config)
-// api.getCards()
-//   .then(cards => {
-//     const cardList = new Section(
-//       {
-//         data: cards,
-//         renderer: (item) => {
-//           const card = new Card(item, "template", handleCardClick);
-//           const cardElem = card.generateCard();
-//           cardList.addItem(cardElem);
-//         },
-//       },
-//       cardListContainer
-//     );
-//     cardList.renderItems();
-//   })
+api.getCards()
+  .then(cards => {
+    cardList.renderItems(cards)
+  })
+  .catch(err => console.log(err))
+
+api.getUserInfo()
+  .then(userData => {
+    userInfo.setUserInfo(userData);
+    userInfo.setAvatar(userData)
+  })
+  .catch(err => console.log(err))
 
 // Вадидация форм
 
@@ -84,35 +82,30 @@ const cardList = new Section(
   cardListContainer
 );
 
-api.getCards()
-  .then(cards => {
-    cardList.renderItems(cards)
-  })
-  .catch(err => console.log(err))
-
-
 // Работа с формами //
-
-
 
 const userInfo = new UserInfo({
   nameElement: nameField,
   infoElement: aboutField,
+  titleField: profileName,
+  infoField: aboutProfile,
+  avatarElement: profileAvatar,
 });
-userInfo.setUserInfo(profileName.textContent, aboutProfile.textContent);
+// userInfo.setUserInfo(profileName.textContent, aboutProfile.textContent);
 
 const popupWithEditForm = new PopupWithForm({
   popupSelector: ".popup-edit",
   handleSubmitForm: (data) => {
-    userInfo.setUserInfo(data.name, data.about);
+    userInfo.setUserInfo(data),
+    api.setUserInfo(data)
+    .catch(err => console.log(err))
     popupWithEditForm.close();
-    profileName.textContent = data.name;
-    aboutProfile.textContent = data.about;
   },
 });
 popupWithEditForm.setEventListeners();
 editButton.addEventListener("click", () => {
-  userInfo.setUserInfo(profileName.textContent, aboutProfile.textContent);
+  userInfo.setUserInfo({name: profileName.textContent, about: aboutProfile.textContent});
+  userInfo.updateInfo()
   popupWithEditForm.open();
   validationEditForm.checkButtonStatus(true);
 });
