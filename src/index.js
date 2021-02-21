@@ -170,6 +170,7 @@ editButton.addEventListener("click", () => {
   userInfo.updateInfo()
   buttonLoaderText(false, editSaveBtn)
   popupWithEditForm.open();
+  validationEditForm.clearErrorMessage()
   validationEditForm.checkButtonStatus(true);
 });
 
@@ -189,6 +190,7 @@ popupWithCardForm.setEventListeners();
 addBtn.addEventListener("click", () => {
   buttonLoaderText(false, saveNewCard)
   popupWithCardForm.open();
+  validationAddForm.clearErrorMessage()
   validationAddForm.checkButtonStatus(false);
 });
 
@@ -211,5 +213,6 @@ editAvatarBtn.addEventListener('click', () => {
   buttonLoaderText(false, saveNewAvatarBtn)
   popupEditAvatar.open();
   validateAvatar.checkButtonStatus(false)
+  validateAvatar.clearErrorMessage()
 })
 
