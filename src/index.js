@@ -1,13 +1,13 @@
 import "../pages/index.css";
-import Card from "../script/Card.js";
-import FormValidator from "../script/FormValidation.js";
-import Section from "../script/Section.js";
-import PopupWithImage from "../script/PopupWithImage.js";
-import PopupWithForm from "../script/PopupWithForm.js";
-import UserInfo from "../script/UserInfo.js";
-import Api from "../script/Api.js";
-import PopupDelete from "../script/PopupDelete.js";
-import { buttonLoaderText } from "../script/utils/utils.js";
+import Card from "../components/Card.js";
+import FormValidator from "../components/FormValidation.js";
+import Section from "../components/Section.js";
+import PopupWithImage from "../components/PopupWithImage.js";
+import PopupWithForm from "../components/PopupWithForm.js";
+import UserInfo from "../components/UserInfo.js";
+import Api from "../components/Api.js";
+import PopupDelete from "../components/PopupDelete.js";
+import { buttonLoaderText } from "../utils/utils.js";
 
 const validationConfig = {
   formSelector: ".popup__form",
