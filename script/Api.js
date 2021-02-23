@@ -5,7 +5,7 @@ export default class Api {
     }
 
     getAllInfo() {
-        return Promise.all(this.getUserInfo, this.getCards);
+        return Promise.all([this.getUserInfo(), this.getCards()]);
     }
 
     getCards() {

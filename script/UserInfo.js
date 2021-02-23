@@ -12,27 +12,35 @@ export default class UserInfo {
   }
 
   setUserInfo({ name, about }) {
-    this._name = name;
-    this._info = about;
-    this._titleField.textContent = this._name;
-    this._infoField.textContent = this._info;
+    if (name) {
+      this._name = name;
+      this._titleField.textContent = this._name;
+    }
+    if (about) {
+      this._info = about;
+      this._infoField.textContent = this._info;
+    }
   }
 
-  setAvatar({ avatar }){
-    this._avatarElement.src = avatar;
-    this._avatarElement.alt = this._name
+  setAvatar({ avatar }) {
+    if (avatar) {
+      this._avatarElement.src = avatar;
+      this._avatarElement.alt = this._name;
+    }
   }
-  
+
   updateInfo() {
     this._profileName.value = this._name;
     this._profileInfo.value = this._info;
   }
 
-  setUserId(id){
-    this._id = id
+  setUserId(id) {
+    if(id) {
+      this._id = id;
+    }
   }
   getUserId() {
-    return this._id
+    return this._id;
   }
 
   getUserInfo() {

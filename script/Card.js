@@ -13,7 +13,6 @@ export default class Card {
     this._ownerId = owner._id;
     this._likes = likes;
     this._userId = userId;
-    // console.log(this._userId);
     this._imageId = _id;
     this._cardSelector = cardSelector;
     this._openPopupImage = handleCardClick;
@@ -38,12 +37,15 @@ export default class Card {
 
   generateCard() {
     this._element = this._getTemplate();
+    this._image = this._element.querySelector(".elems__img");
+    this._likeElem = this._element.querySelector('.elems__like');
     this._element.querySelector(".elems__title").textContent = this._name;
-    this._element.querySelector(".elems__img").src = this._link;
+    this._image.src = this._link;
+    this._image.alt = this._name;
     this._element.querySelector(".elems__title").alt = this._name;
     this._likes.forEach((item) => {
         if(item._id === this._userId) {
-            this._element.querySelector('.elems__like').classList.add('elems__like_status_active')
+          this._likeElem.classList.add('elems__like_status_active')
         }
     });
     this.updateLikes(this._likes)
@@ -57,24 +59,24 @@ export default class Card {
   }
 
   _setEventListeners() {
-    this._element.querySelector(".elems__like").addEventListener("click", this._handleLikeClick)
+    this._likeElem.addEventListener("click", this._handleLikeClick)
     this._element
       .querySelector(this._deleteSelector)
       .addEventListener("click", () => {
         this._deleteHandle();
       });
 
-    this._element.querySelector(".elems__img").addEventListener("click", () => {
+      this._image.addEventListener("click", () => {
       this._openPopupImage(this._name, this._link);
     });
   }
 
   _handleLikeClick(evt) {
     if (evt.target.classList.contains("elems__like_status_active")) {
-      this._element.querySelector('.elems__like').classList.remove('elems__like_status_active')
+      this._likeElem.classList.remove('elems__like_status_active')
       this._delLike();
     } else {
-      this._element.querySelector('.elems__like').classList.add('elems__like_status_active')
+      this._likeElem.classList.add('elems__like_status_active')
       this._putLike();
     }
   }
