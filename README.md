@@ -39,3 +39,5 @@
 - Запуск в product – npm build
 - Разместить product на githup pages
 
+### Продолжение 
+Данный проект, написанный на React: https://github.com/Arti-D/mesto-react
